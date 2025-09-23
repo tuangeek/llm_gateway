@@ -19,6 +19,8 @@ env:
   AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
   AWS_REGION: ${{ vars.AWS_REGION }}
   AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+  AWS_ROLE_SESSION_NAME: ${{ vars.ROLE_SESSION_NAME }}
+  TF_VAR_ROLE_SESSION_NAME: ${{ vars.ROLE_SESSION_NAME }}
   WORKING_DIR: ${{ inputs.workingDir }}
 
 jobs:

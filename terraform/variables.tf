@@ -26,3 +26,12 @@ variable "profile" {
   description = "The profile"
 }
 
+# these are for the Pipeline
+variable "assume_role" { default = null }
+
+variable "role_session_name" {
+  default = null
+}
+variable "role_session_name_commercial" {
+  default = null
+}
