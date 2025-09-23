@@ -32,10 +32,17 @@ jobs:
     with:
       environment: "dev"
       workingDir: "terraform"
-      
+  
+  docker-build:
+    name: "Terraform Validate"
+    uses: ./.github/workflows/tf-validate.yml
+    with:
+      environment: "dev"
+      workingDir: "terraform"
+
   terraform-plan:
     name: "Terraform Plan"
-    needs: terraform-validate
+    needs: [terraform-validate, docker-build]
     if: needs.get-changes.outputs.terraform-dirs != '[]'
     uses: ./.github/workflows/tf-plan.yml
     with:
