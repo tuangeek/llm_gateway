@@ -1,0 +1,4 @@
+bucket = "serply-tf-state"
+key    = "dev/gateway_ecs.tf"
+profile = "AdministratorAccess-465578772136"
+region = "us-gov-west-1"

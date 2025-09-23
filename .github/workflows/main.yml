@@ -1,0 +1,44 @@
+name: "Main Pipeline"
+on:
+  pull_request:
+    types:
+      - closed
+    paths-ignore:
+      - "README.md"
+      - "images/**"
+
+  push:
+    paths-ignore:
+      - "README.md"
+      - "images/**"
+
+  workflow_dispatch:
+    inputs:
+      lockID:
+        required: false
+        description: "(Optional) Provide a terraform lockID to force unlock"
+      destroy:
+        type: string
+        required: false
+        description: "(Optional) set 'DESTROY' to run destroy"
+
+
+permissions: write-all
+
+jobs:
+  terraform-validate:
+    name: "Terraform Validate"
+    uses: ./.github/workflows/tf-validate.yml
+    with:
+      environment: "dev"
+      workingDir: "terraform"
+      
+  terraform-plan:
+    name: "Terraform Plan"
+    needs: terraform-validate
+    if: needs.get-changes.outputs.terraform-dirs != '[]'
+    uses: ./.github/workflows/tf-plan.yml
+    with:
+      environment: "dev"
+      workingDir: "terraform"
+    secrets: inherit
