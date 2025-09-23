@@ -1,6 +1,6 @@
- resource "aws_ecr_repository" "this" {
-    name =  "${var.org}-${var.env}-app"
-    image_tag_mutability = "MUTABLE"
+resource "aws_ecr_repository" "this" {
+  name                 = "${var.org}-${var.env}-app"
+  image_tag_mutability = "MUTABLE"
 }
 
 # resource "docker_image" "latest" {
