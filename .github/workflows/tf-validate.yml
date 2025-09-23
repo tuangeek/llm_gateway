@@ -10,6 +10,9 @@ on:
         required: true
         type: string
 
+env:
+  TF_VAR_SHA: ${{ github.sha }}
+
 jobs:
   terraform-unit-tests:
     name: 'Terraform Unit Tests'
