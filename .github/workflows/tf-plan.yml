@@ -144,7 +144,9 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init
+      run: |
+        echo "Running terraform init with -backend-config=${{ inputs.environment }}.tfbackend"
+        terraform init -backend-config=${{ inputs.environment }}.tfbackend -upgrade
 
     # Download saved plan from artifacts
     - name: Download Terraform Plan
