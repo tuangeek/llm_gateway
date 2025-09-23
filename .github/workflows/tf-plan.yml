@@ -142,6 +142,15 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
+    # OIDC Connection to AWS
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4.2.1
+      with:
+        audience: sts.amazonaws.com
+        aws-region: ${{ env.AWS_REGION }}
+        role-to-assume: ${{ env.AWS_ROLE_ARN }}
+        role-session-name: ${{ env.TF_ROLE_SESSION_NAME }}
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
