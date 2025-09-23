@@ -35,11 +35,12 @@ jobs:
   
   docker-build:
     name: "Docker Build"
-    uses: ./.github/workflows/tf-validate.yml
+    uses: ./.github/workflows/build.yml
     with:
       environment: "dev"
       workingDir: "docker"
-
+    secrets: inherit
+    
   terraform-plan:
     name: "Terraform Plan"
     needs: [terraform-validate, docker-build]
