@@ -18,7 +18,8 @@ env:
   AWS_ROLE_SESSION_NAME: ${{ vars.ROLE_SESSION_NAME }}
   TF_VAR_ROLE_SESSION_NAME: ${{ vars.ROLE_SESSION_NAME }}
   WORKING_DIR: ${{ inputs.workingDir }}
-  
+  ENV: ${{ inputs.environment }}
+
 jobs:
   docker-build:
     name: 'Docker Build'
@@ -52,4 +53,16 @@ jobs:
 
     - name: Login to Amazon ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      uses: aws-actions/amazon-ecr-login@v2
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      env:
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REPOSITORY: "goog-${{ inputs.environment }}-app"
+        IMAGE_TAG: ${{ github.sha }}
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true # Set to true to push the image
+        tags: your_dockerhub_username/your_image_name:latest

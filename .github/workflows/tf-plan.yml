@@ -172,10 +172,4 @@ jobs:
     # Terraform Apply
     - name: Terraform Apply
       run: terraform apply -var-file=${{ inputs.environment }}.tfvars -auto-approve tfplan
-
-    # Save plan to artifacts
-    - name: Publish Terraform Plan
-      uses: actions/upload-artifact@v4
-      with:
-        name: "tfstate-${{ inputs.environment }}"
-        path: "${{ env.WORKING_DIR }}/terraform.tfstate"
+    
