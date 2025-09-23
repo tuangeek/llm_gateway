@@ -23,7 +23,8 @@ variable "region" {
 
 variable "profile" {
   type        = string
-  description = "The profile"
+  description = "The aws profile"
+  default     = null
 }
 
 # these are for the Pipeline
