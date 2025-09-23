@@ -56,13 +56,11 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v5
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: "goog-${{ inputs.environment }}-app"
+        REGISTRY_ALIAS: app
+        REPOSITORY: "goog-${{ env.ENV }}-app"
         IMAGE_TAG: ${{ github.sha }}
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true # Set to true to push the image
-        tags: your_dockerhub_username/your_image_name:latest
+      run: |
+        docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
+        docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
