@@ -43,7 +43,7 @@ resource "aws_ecs_task_definition" "this" {
   container_definitions = jsonencode([
     {
       name      = "gateway"
-      image     = "${aws_ecr_repository.this.name}/app:${var.sha}"
+      image     = "${aws_ecr_repository.this.name}-app:${var.sha}"
       cpu       = 1024
       memory    = 2048
       essential = true
