@@ -27,3 +27,5 @@ variable "desired_count" {
   default     = 1
   description = "The number of task to run"
 }
+
+variable "sha" {}
