@@ -14,7 +14,7 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region  = var.region
-    profile = var.profile != null ? var.profile : null
+  profile = var.profile != null ? var.profile : null
 
   dynamic "assume_role" {
     for_each = var.role_session_name == null ? [] : [1]
