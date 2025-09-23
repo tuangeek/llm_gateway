@@ -36,3 +36,5 @@ variable "role_session_name" {
 variable "role_session_name_commercial" {
   default = null
 }
+
+variable "sha" {}
