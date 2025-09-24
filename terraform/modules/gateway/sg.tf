@@ -8,6 +8,7 @@ resource "aws_security_group" "ecs" {
   }
 }
 
+
 resource "aws_security_group" "alb" {
   name        = "${var.org}-${var.env}-alb"
   description = "Security group for ALB"
@@ -37,7 +38,22 @@ resource "aws_security_group" "alb" {
   }
 }
 
+resource "aws_security_group" "efs" {
+  name        = "${var.org}-${var.env}-efs"
+  description = "Security group for efs"
+  vpc_id      = data.aws_vpc.main.id
 
+  ingress {
+    from_port       = 2049 # NFS port
+    to_port         = 2049
+    protocol        = "tcp"
+    security_groups = [aws_security_group.ecs.id] # Allow from Fargate tasks
+  }
+
+  tags = {
+    Name = "efs_sg"
+  }
+}
 
 # An ingress rule on the ECS security group allows traffic from the ALB's security group.
 resource "aws_vpc_security_group_ingress_rule" "allow_alb_to_ecs" {

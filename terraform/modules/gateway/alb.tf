@@ -17,7 +17,7 @@ resource "aws_lb" "this" {
 
 #Defining the target group and a health check on the application
 resource "aws_lb_target_group" "this" {
-  name        = "test-tg"
+  name        = "${var.org}-${var.env}"
   port        = var.container_port
   protocol    = "HTTP"
   target_type = "ip"

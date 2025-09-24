@@ -61,6 +61,13 @@ resource "aws_ecs_task_definition" "this" {
           awslogs-stream-prefix = "ecs"
         }
       }
+      mount_points = [
+        {
+          sourceVolume  = "efs-volume"
+          containerPath = "/data"
+          readOnly      = false
+        }
+      ]
     }
   ])
 
@@ -68,6 +75,20 @@ resource "aws_ecs_task_definition" "this" {
     operating_system_family = "LINUX"
     cpu_architecture        = "X86_64"
   }
+
+  volume {
+    name = "efs-volume"
+    efs_volume_configuration {
+      file_system_id     = aws_efs_file_system.this.id
+      root_directory     = "/"
+      transit_encryption = "ENABLED"
+      authorization_config {
+        access_point_id = aws_efs_access_point.this.id # Optional: for access points
+        iam             = "ENABLED"
+      }
+    }
+  }
+
 }
 
 resource "aws_cloudwatch_log_group" "this" {

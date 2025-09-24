@@ -18,5 +18,12 @@
                 }
             ]
         }
+    },
+    "config_store": {
+        "enabled": true,
+        "type": "sqlite",
+        "config": {
+        "path": "/data/config.db"
+        }
     }
 }
