@@ -1,4 +1,4 @@
-module "vpc" {
+module "gateway" {
   source = "./modules/gateway"
   org    = var.org
   env    = var.env
