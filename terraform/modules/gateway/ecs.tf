@@ -43,7 +43,7 @@ resource "aws_ecs_task_definition" "this" {
   container_definitions = jsonencode([
     {
       name      = "gateway"
-      image     = "${aws_ecr_repository.this.repository_url}:${var.sha}"
+      image     = "${aws_ecr_repository.this.repository_url}:latest"
       cpu       = 1024
       memory    = 2048
       essential = true
@@ -83,7 +83,7 @@ resource "aws_ecs_task_definition" "this" {
       root_directory     = "/"
       transit_encryption = "ENABLED"
       authorization_config {
-        access_point_id = aws_efs_access_point.this.id # Optional: for access points
+        access_point_id = aws_efs_access_point.this.id
         iam             = "ENABLED"
       }
     }

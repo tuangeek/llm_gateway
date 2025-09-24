@@ -60,7 +60,7 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REGISTRY_ALIAS: app
         REPOSITORY: "goog-${{ env.ENV }}-app"
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: latest
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
