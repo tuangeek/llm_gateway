@@ -1,3 +1,3 @@
 FROM maximhq/bifrost
 
-COPY config.json /app/data/config.json
+# COPY config.json /app/data/config.json

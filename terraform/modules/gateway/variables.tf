@@ -29,3 +29,18 @@ variable "desired_count" {
 }
 
 variable "sha" {}
+
+variable "certificate" {
+  type        = string
+  description = "The certificate id"
+}
+
+variable "domain" {
+  type        = string
+  description = "The domain the gateway will use"
+}
+
+variable "subdomain" {
+  type        = string
+  description = "The domain the gateway will use"
+}

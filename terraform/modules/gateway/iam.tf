@@ -56,6 +56,43 @@ data "aws_iam_policy_document" "task_policy" {
 
     resources = ["*"]
   }
+
+  statement {
+    actions = [
+      "bedrock:Get*",
+      "bedrock:List*",
+      "bedrock:CallWithBearerToken",
+      "bedrock:BatchDeleteEvaluationJob",
+      "bedrock:CreateEvaluationJob",
+      "bedrock:CreateGuardrail",
+      "bedrock:CreateGuardrailVersion",
+      "bedrock:CreateInferenceProfile",
+      "bedrock:CreateModelCopyJob",
+      "bedrock:CreateModelCustomizationJob",
+      "bedrock:CreateModelImportJob",
+      "bedrock:CreateModelInvocationJob",
+      "bedrock:CreatePromptRouter",
+      "bedrock:CreateProvisionedModelThroughput",
+      "bedrock:DeleteCustomModel",
+      "bedrock:DeleteGuardrail",
+      "bedrock:DeleteImportedModel",
+      "bedrock:DeleteInferenceProfile",
+      "bedrock:DeletePromptRouter",
+      "bedrock:DeleteProvisionedModelThroughput",
+      "bedrock:StopEvaluationJob",
+      "bedrock:StopModelCustomizationJob",
+      "bedrock:StopModelInvocationJob",
+      "bedrock:TagResource",
+      "bedrock:UntagResource",
+      "bedrock:UpdateGuardrail",
+      "bedrock:UpdateProvisionedModelThroughput",
+      "bedrock:ApplyGuardrail",
+      "bedrock:InvokeModel",
+      "bedrock:InvokeModelWithResponseStream"
+    ]
+
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_policy" "ecs_task_policy" {
@@ -67,3 +104,5 @@ resource "aws_iam_role_policy_attachment" "task_logs" {
   role       = aws_iam_role.task.name
   policy_arn = aws_iam_policy.ecs_task_policy.arn
 }
+
+

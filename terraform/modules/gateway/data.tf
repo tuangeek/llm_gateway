@@ -29,3 +29,9 @@ data "aws_subnets" "public" {
     Name = "${var.org}-${var.env}-public*"
   }
 }
+
+# Find a certificate that is issued
+data "aws_acm_certificate" "issued" {
+  domain   = var.domain
+  statuses = ["ISSUED"]
+}

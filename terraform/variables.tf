@@ -38,3 +38,18 @@ variable "role_session_name_commercial" {
 }
 
 variable "sha" {}
+
+variable "certificate" {
+  type        = string
+  description = "The certificate id"
+}
+
+variable "domain" {
+  type        = string
+  description = "The domain the gateway will use"
+}
+
+variable "subdomain" {
+  type        = string
+  description = "The domain the gateway will use"
+}
