@@ -30,7 +30,7 @@ resource "aws_wafv2_web_acl" "this" {
             uri_path {}
           }
           text_transformation {
-            priority = 0
+            priority = index(local.public_paths, rule.value) + 1
             type = "NONE"
           }
           positional_constraint = "STARTS_WITH" # or EXACTLY, CONTAINS, etc.
