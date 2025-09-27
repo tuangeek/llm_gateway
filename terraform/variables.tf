@@ -37,6 +37,12 @@ variable "role_session_name_commercial" {
   default = null
 }
 
+variable "desired_count" {
+  type        = number
+  default     = 1
+  description = "The number of task to run"
+}
+
 variable "sha" {}
 
 variable "certificate" {

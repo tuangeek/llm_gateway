@@ -6,3 +6,4 @@ sha         = "0eb2d8689361872604360cb3f3390c8fcc36ded0"
 certificate = "235cdfe0-469c-4ad7-b77c-4d3d4287acf6"
 domain      = "*.bing.ly"
 subdomain   = "api.bing.ly"
+desired_count = 5
