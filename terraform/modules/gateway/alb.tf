@@ -59,8 +59,12 @@ resource "aws_lb_listener" "https" {
   certificate_arn   = data.aws_acm_certificate.issued.arn
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.this.arn
+    type = "fixed-response"
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "403 Forbidden"
+      status_code  = "403"
+    }
   }
 }
 
@@ -84,3 +88,5 @@ resource "aws_lb_listener_rule" "public" {
     }
   }
 }
+
+
