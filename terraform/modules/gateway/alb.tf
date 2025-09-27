@@ -72,7 +72,7 @@ locals {
 }
 
 resource "aws_lb_listener_rule" "public" {
-  listener_arn = aws_lb_listener.this.arn
+  listener_arn = aws_lb_listener.https.arn
   priority     = 10
   action {
     type             = "forward"
