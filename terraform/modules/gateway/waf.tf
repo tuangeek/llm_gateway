@@ -16,7 +16,7 @@ resource "aws_wafv2_web_acl" "this" {
   dynamic "rule" {
     for_each = local.public_paths
     content {
-      name     = "allow-${replace(rule.value, "/", "-")}"  # Unique name for each rule
+      name     = "allow-${index(local.public_paths, rule.value) + 1}"  # Unique name for each rule
       priority = index(local.public_paths, rule.value) + 1 # Assign priority
 
       action {
