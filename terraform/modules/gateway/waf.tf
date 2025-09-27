@@ -39,7 +39,7 @@ resource "aws_wafv2_web_acl" "this" {
 
       visibility_config {
         cloudwatch_metrics_enabled = true
-        metric_name                = "allow-${replace(rule.value, "/", "-")}-metric"
+        metric_name                = "allow-${replace(replace(rule.value, "/", "-"), "*", "")}-metric"
         sampled_requests_enabled   = true
       }
     }
