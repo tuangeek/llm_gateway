@@ -34,9 +34,9 @@ resource "aws_ecs_service" "this" {
 
   enable_execute_command = true
 
-  launch_type = "FARGATE"
+  launch_type          = "FARGATE"
   force_new_deployment = true
-  
+
   load_balancer {
     target_group_arn = aws_lb_target_group.this.arn
     container_name   = "gateway"
