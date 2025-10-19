@@ -9,6 +9,8 @@
                     ],
                     "weight": 0.5,
                     "bedrock_key_config": {
+                        "access_key": "",
+                        "secret_key": "",
                         "region": "us-gov-west-1",
                         "deployments": {
                             "claude-3-sonnet": "us-gov.anthropic.claude-3-haiku-20240307-v1:0"
