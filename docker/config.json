@@ -7,7 +7,7 @@
                         "anthropic.claude-3-sonnet-20240229-v1:0", 
                         "claude-3-haiku"
                     ],
-                    "weight": 1.0,
+                    "weight": 0.9,
                     "bedrock_key_config": {
                         "region": "us-gov-west-1",
                         "deployments": {
@@ -21,7 +21,7 @@
                         "anthropic.claude-3-sonnet-20240229-v1:0", 
                         "claude-3-haiku"
                     ],
-                    "weight": 1.0,
+                    "weight": 0.1,
                     "bedrock_key_config": {
                         "access_key": "env.AWS_ACCESS_KEY_ID",
                         "secret_key": "env.AWS_SECRET_ACCESS_KEY",
