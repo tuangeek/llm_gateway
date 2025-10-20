@@ -11,6 +11,26 @@
                             "claude-3-sonnet": "us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0"
                         }
                     }
+                },
+                {
+                    "models": ["claude-3-7-sonnet"],
+                    "weight": 1.0,
+                    "bedrock_key_config": {
+                        "region": "us-gov-east-1",
+                         "deployments": {
+                            "claude-3-sonnet": "us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0"
+                        }
+                    }
+                },
+                {
+                    "models": ["claude-3-5-sonnet"],
+                    "weight": 1.0,
+                    "bedrock_key_config": {
+                        "region": "us-gov-east-1",
+                         "deployments": {
+                            "claude-3-sonnet": "us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0"
+                        }
+                    }
                 }
             ]
         }
