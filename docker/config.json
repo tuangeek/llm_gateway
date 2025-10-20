@@ -6,13 +6,6 @@
                     "models": [],
                     "weight": 1.0,
                     "bedrock_key_config": {
-                        "region": "us-gov-west-1"
-                    }
-                },
-                {
-                    "models": [],
-                    "weight": 1.0,
-                    "bedrock_key_config": {
                         "region": "us-gov-east-1"
                     }
                 }
