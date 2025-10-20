@@ -8,7 +8,7 @@
                     ],
                     "weight": 1.0,
                     "bedrock_key_config": {
-                        "region": "us-gov-west-1",
+                        "region": "us-gov-east-1",
                         "deployments": {
                             "claude-3-haiku": "us-gov.anthropic.claude-3-haiku-20240307-v1:0"
                         },
