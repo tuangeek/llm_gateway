@@ -39,7 +39,15 @@
                     "weight": 1.0,
                     "bedrock_key_config": {
                         "region": "us-gov-east-1",
-                        "arn": "arn:aws-us-gov:bedrock:us-gov-east-1:465578772136:inference-profile/us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0"
+                        "arn": "arn:aws-us-gov:bedrock:us-gov-east-1::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
+                    }
+                },
+                {
+                    "models": ["claude-3-7-sonnet"],
+                    "weight": 1.0,
+                    "bedrock_key_config": {
+                        "region": "us-gov-west-1",
+                        "arn": "arn:aws-us-gov:bedrock:us-gov-west-1::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
                     }
                 }
             ]
